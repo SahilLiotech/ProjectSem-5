@@ -45,17 +45,16 @@
         </div>
 
         <ul class="footer-nav-list">
-          <li><a href="about.html" class="footer-nav-link">About Us</a></li>
+          <li><a href="about.php" class="footer-nav-link">About Us</a></li>
           <li>
-            <a href="contact.html" class="footer-nav-link">Contact Us</a>
+            <a href="contact.php" class="footer-nav-link">Contact Us</a>
           </li>
-          <li><a href="cars.html" class="footer-nav-link">Cars</a></li>
-          <li><a href="bikes.html" class="footer-nav-link">Bikes</a></li>
+          <li><a href="cars.php" class="footer-nav-link">Cars</a></li>
+          <li><a href="bikes.php" class="footer-nav-link">Bikes</a></li>
           <li>
-            <a href="scooters.html" class="footer-nav-link">Scooters</a>
+            <a href="scooters.php" class="footer-nav-link">Scooters</a>
           </li>
-          <li><a href="ev.html" class="footer-nav-link">Electric</a></li>
-          <!-- <li><a href="#" class="main-nav-link login-btn">Log-In</a></li> -->
+          <li><a href="ev.php" class="footer-nav-link">Electric</a></li>
         </ul>
       </div>
       <div class="social-nav">

@@ -18,13 +18,13 @@
 
     <nav class="main-nav">
       <ul class="main-nav-list">
-        <li><a href="cars.html" class="main-nav-link">Cars</a></li>
-        <li><a href="bikes.html" class="main-nav-link">Bikes</a></li>
-        <li><a href="scooters.html" class="main-nav-link">Scooters</a></li>
-        <li><a href="ev.html" class="main-nav-link">Electric</a></li>
-        <li><a href="about.html" class="main-nav-link">About Us</a></li>
-        <li><a href="contact.html" class="main-nav-link">Contact Us</a></li>
-        <li><a href="login.html" class="main-nav-link login-btn">Log-In</a></li>
+        <li><a href="cars.php" class="main-nav-link">Cars</a></li>
+        <li><a href="bikes.php" class="main-nav-link">Bikes</a></li>
+        <li><a href="scooters.php" class="main-nav-link">Scooters</a></li>
+        <li><a href="ev.php" class="main-nav-link">Electric</a></li>
+        <li><a href="about.php" class="main-nav-link">About Us</a></li>
+        <li><a href="contact.php" class="main-nav-link">Contact Us</a></li>
+        <li><a href="login.php" class="main-nav-link login-btn">Log-In</a></li>
       </ul>
     </nav>
 
