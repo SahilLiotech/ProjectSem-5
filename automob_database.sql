@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 22, 2023 at 11:46 AM
+-- Generation Time: Sep 25, 2023 at 09:02 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -204,7 +204,7 @@ CREATE TABLE `contactus` (
 --
 
 INSERT INTO `contactus` (`fid`, `name`, `email`, `feedback`, `created_at`) VALUES
-(1, 'Sahil', 'Sahil@gmail.com', 'Please add more specific detail and picture of vehicles available on your site. ', '2023-09-17 17:01:04');
+(1, 'raj', 'raj@gmail.com', 'rajhgdjagsdjasjdvjascvjascjh', '2023-09-25 06:52:29');
 
 -- --------------------------------------------------------
 
@@ -346,7 +346,7 @@ CREATE TABLE `userdata` (
   `fname` varchar(50) NOT NULL,
   `lname` varchar(50) NOT NULL,
   `email` varchar(100) NOT NULL,
-  `password` varchar(50) NOT NULL,
+  `password` varchar(100) NOT NULL,
   `address` varchar(150) NOT NULL,
   `city` varchar(50) NOT NULL,
   `zip` varchar(10) NOT NULL,
@@ -359,8 +359,7 @@ CREATE TABLE `userdata` (
 --
 
 INSERT INTO `userdata` (`uid`, `fname`, `lname`, `email`, `password`, `address`, `city`, `zip`, `state`, `created_at`) VALUES
-(1, 'sahil', 'pathan', 'sahil@gmail.com', '*19EF91BF1124129408740A49CB617E188EC6F8A7', 'Dhoraji', 'Dhoraji', '360410', 'Gujarat', '2023-09-17 16:49:00'),
-(2, 'aaftab', 'pathan', 'aaftab@gmail.com', 'aaftab', 'dhoraji', 'dhoraji', '360410', 'guj\\', '2023-09-22 03:50:15');
+(1, 'sahil', 'pathan', 'sahil@gmail.com', '$2y$10$nVCJUCtzAM4VqnGVIL1gyOkB42somxc8HvKhMwimLOAwUH3PgQAf.', 'dhoraji', 'dhoraji', '360410', 'Gujarat', '2023-09-24 08:29:47');
 
 --
 -- Indexes for dumped tables
@@ -383,8 +382,8 @@ ALTER TABLE `bike`
 --
 ALTER TABLE `bike_sales`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_bike_id` (`bikeid`),
-  ADD KEY `fk_uid` (`uid`) USING BTREE;
+  ADD KEY `bikeid` (`bikeid`),
+  ADD KEY `uid` (`uid`);
 
 --
 -- Indexes for table `car`
@@ -397,8 +396,8 @@ ALTER TABLE `car`
 --
 ALTER TABLE `car_sales`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_car_id` (`carid`),
-  ADD KEY `fk_uid` (`uid`);
+  ADD KEY `carid` (`carid`),
+  ADD KEY `uid` (`uid`);
 
 --
 -- Indexes for table `contactus`
@@ -417,8 +416,8 @@ ALTER TABLE `ev`
 --
 ALTER TABLE `ev_sales`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_ev_id` (`evid`),
-  ADD KEY `fk_uid` (`uid`) USING BTREE;
+  ADD KEY `evid` (`evid`),
+  ADD KEY `uid` (`uid`);
 
 --
 -- Indexes for table `scooter`
@@ -431,8 +430,8 @@ ALTER TABLE `scooter`
 --
 ALTER TABLE `scooter_sales`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_scooter_id` (`scooterid`),
-  ADD KEY `fk_uid` (`uid`) USING BTREE;
+  ADD KEY `scooterid` (`scooterid`),
+  ADD KEY `uid` (`uid`);
 
 --
 -- Indexes for table `userdata`
@@ -484,7 +483,7 @@ ALTER TABLE `scooter_sales`
 -- AUTO_INCREMENT for table `userdata`
 --
 ALTER TABLE `userdata`
-  MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables
@@ -494,29 +493,31 @@ ALTER TABLE `userdata`
 -- Constraints for table `bike_sales`
 --
 ALTER TABLE `bike_sales`
-  ADD CONSTRAINT `fk_bike_id` FOREIGN KEY (`bikeid`) REFERENCES `bike` (`bike_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `uid_fk` FOREIGN KEY (`uid`) REFERENCES `userdata` (`uid`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `bike_sales_ibfk_1` FOREIGN KEY (`bikeid`) REFERENCES `bike` (`bike_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `bike_sales_ibfk_2` FOREIGN KEY (`uid`) REFERENCES `userdata` (`uid`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `car_sales`
 --
 ALTER TABLE `car_sales`
-  ADD CONSTRAINT `fk_car_id` FOREIGN KEY (`carid`) REFERENCES `car` (`car_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_uid` FOREIGN KEY (`uid`) REFERENCES `userdata` (`uid`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `car_sales_ibfk_1` FOREIGN KEY (`carid`) REFERENCES `car` (`car_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `car_sales_ibfk_2` FOREIGN KEY (`uid`) REFERENCES `userdata` (`uid`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `ev_sales`
 --
 ALTER TABLE `ev_sales`
-  ADD CONSTRAINT `fk_ev_id` FOREIGN KEY (`evid`) REFERENCES `ev` (`ev_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_u__id` FOREIGN KEY (`uid`) REFERENCES `userdata` (`uid`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `ev_sales_ibfk_1` FOREIGN KEY (`evid`) REFERENCES `ev` (`ev_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `ev_sales_ibfk_2` FOREIGN KEY (`uid`) REFERENCES `userdata` (`uid`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `ev_sales_ibfk_3` FOREIGN KEY (`evid`) REFERENCES `ev` (`ev_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `ev_sales_ibfk_4` FOREIGN KEY (`uid`) REFERENCES `userdata` (`uid`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `scooter_sales`
 --
 ALTER TABLE `scooter_sales`
-  ADD CONSTRAINT `fk_scooter_id` FOREIGN KEY (`scooterid`) REFERENCES `scooter` (`scooter_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_u_id` FOREIGN KEY (`uid`) REFERENCES `userdata` (`uid`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `scooter_sales_ibfk_1` FOREIGN KEY (`scooterid`) REFERENCES `scooter` (`scooter_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `scooter_sales_ibfk_2` FOREIGN KEY (`uid`) REFERENCES `userdata` (`uid`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
