@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 25, 2023 at 09:02 AM
+-- Generation Time: Sep 29, 2023 at 06:48 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -32,7 +32,7 @@ CREATE TABLE `admin_data` (
   `fullname` varchar(50) NOT NULL,
   `uname` varchar(50) NOT NULL,
   `email` varchar(100) NOT NULL,
-  `password` varchar(50) NOT NULL,
+  `password` varchar(60) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -41,7 +41,8 @@ CREATE TABLE `admin_data` (
 --
 
 INSERT INTO `admin_data` (`A_Id`, `fullname`, `uname`, `email`, `password`, `created_at`) VALUES
-(1, 'admin ', 'admin', 'admin@gmail.com', 'admin', '2023-09-18 05:27:06');
+(1, 'admin', 'admin', 'admin@gmail.com', '$2y$10$c0fekGUUNdHXSHg/jkjwt.E8bcP.KSJbCH3.KwHw8AbJFGG.dU2k6', '2023-09-27 20:00:33'),
+(2, 'Sahil Pathan', 'sahil', 'sahil@gmail.com', '$2y$10$kuywCI9AP3F9IcV277aEyeLZDEb7H83UT/sqPJpX09cnAAHJHn9.S', '2023-09-28 00:53:10');
 
 -- --------------------------------------------------------
 
@@ -134,6 +135,7 @@ CREATE TABLE `car` (
 --
 
 INSERT INTO `car` (`car_id`, `car_img`, `car_name`, `car_type`, `car_price`, `fuel_type`, `mileage`, `car_engine`, `seating_capacity`, `pros`, `cons`, `description`, `created_at`) VALUES
+(0, 'imgs/AMGGT4.jpg', '', '', '', '', '', '', 0, '', '', '', '2023-09-29 02:13:27'),
 (1, 'imgs/mthar.jpg', 'Mahindra Thar', 'Automatic', '16 Lakh', 'Diesel', '15.20 Kmpl', '1497 CC', 4, 'Automatic transmission for convenient driving.\r\nCompetitive pricing at 16 Lakh.\r\nDiesel fuel type for better fuel efficiency.\r\nImpressive mileage at 15.2 kmpl.\r\nCompact 1497 cc engine strikes a balance between power and efficiency.\r\nSeating capacity for 4 passengers ideal for a small group of adventurers.', 'Limited seating capacity of 4 may not suit larger groups or families.\r\nWhile the engine size is adequate, some may desire more power for certain off-road scenarios.\r\nAdditional features and details about the Thar\'s specific trim level are not provided.', 'The Mahindra Thar in this configuration offers an automatic transmission, making it an attractive choice for those seeking a convenient and effortless driving experience. Priced at 16 Lakh, it provides competitive value for an off-road-capable SUV. \r\nRunning on diesel, it combines fuel efficiency with torque for both city and off-road adventures, achieving an impressive 15.2 kmpl mileage. With a 1497 cc engine, the Thar strikes a balance between power and efficiency, ensuring that you have enough muscle to conquer challenging terrains while still enjoying respectable fuel economy.\r\nHowever, it\'s essential to note that the Thar\'s seating capacity is limited to four passengers, which may not suit larger groups or families. Additionally, while the engine is capable, some off-road enthusiasts might desire a more potent engine for extreme off-road scenarios. \r\nThis Mahindra Thar variant is a versatile choice for those who appreciate the convenience of an automatic transmission while still wanting the rugged off-road capabilities that the Thar is renowned for. It\'s an excellent option for small groups of adventurers or outdoor enthusiasts looking to explore diverse terrains with style and ease.', '2023-09-12 14:59:06'),
 (2, 'imgs/scorpio.jpg', 'Mahindra Scorpio Classic S 11', 'Manual', '16.5 Lakh', 'Diesel', '15 Kmpl', '2184 CC', 7, 'Manual transmission for control and engagement.\r\nCompetitive pricing at 16.5 Lakh.\r\nDiesel fuel type for better fuel efficiency and torque.\r\nRespectable mileage at 15 kmpl.\r\nA robust 2184 cc engine offering a balance of power and efficiency.\r\nSpacious seating for up to 7 passengers, making it ideal for larger groups and families.', 'Manual transmission might not be as convenient for those who prefer automatic.\r\nAdditional features and specific trim-level details are not provided.', 'The Mahindra Scorpio Classic S11, equipped with a manual transmission, puts the driver in control and allows for a more engaged driving experience. Priced at 16.5 Lakh, it offers competitive value for a versatile and spacious SUV.\r\n\r\nRunning on diesel, this Scorpio variant provides better fuel efficiency and ample torque for both city and off-road adventures, achieving a respectable mileage of 15 kmpl.\r\n\r\nPowered by a robust 2184 cc engine, the Scorpio Classic S11 strikes a balance between power and efficiency, making it suitable for various driving scenarios, from daily commutes to family trips.\r\n\r\nWith a seating capacity of 7 passengers, the Scorpio Classic S11 is well-suited for larger groups and families. Its spacious interior ensures that everyone can travel comfortably.\r\n\r\nHowever, it\'s important to note that the manual transmission might not be as convenient for those who prefer automatic transmissions. Additionally, specific details about the Scorpio Classic S11\'s trim level and features are not provided.\r\n\r\nThis Mahindra Scorpio Classic S11 variant, with its manual transmission, diesel engine, and spacious interior, offers an excellent option for those who value control and efficiency in their SUV. It\'s an ideal choice for larger groups and families seeking both comfort and power in their journeys.\r\n\r\n\r\n\r\n\r\n', '2023-09-12 14:59:06'),
 (3, 'imgs/swift.jpg', 'Maruti Suzuki Swift ZXI Plus', 'Automatic', '8.34 Lakh', 'Petrol', '22.38 Kmpl', '1197 CC', 5, 'Automatic transmission for effortless driving.\r\nCompetitive pricing at 8.34 Lakh.\r\nPetrol fuel type for those who prefer gasoline engines.\r\nImpressive mileage at 22.38 kmpl, offering excellent fuel efficiency.\r\nCompact and efficient 1197 cc engine.\r\nComfortable seating for up to 5 passengers, suitable for families.', 'The automatic transmission might not provide the same level of engagement for driving enthusiasts as a manual transmission.\r\nAdditional features and specific trim-level details are not provided.', 'The Maruti Suzuki Swift ZXI Plus, equipped with an automatic transmission, offers effortless and convenient driving. Priced at 8.34 Lakh, it provides excellent value for a compact car.\r\n\r\nRunning on petrol, the Swift ZXI Plus caters to those who prefer gasoline engines, delivering impressive mileage at 22.38 kmpl. Its compact 1197 cc engine strikes a balance between power and efficiency, making it suitable for daily commutes and urban driving.\r\n\r\nWith a seating capacity of 5 passengers, the Swift ZXI Plus is well-suited for small families and couples. Its comfortable interior ensures that passengers can enjoy a pleasant ride.\r\n\r\nHowever, it\'s important to note that the automatic transmission might not provide the same level of engagement for driving enthusiasts as a manual transmission. Additionally, specific details about the Swift ZXI Plus\'s trim level and features are not provided.\r\n\r\nThis Maruti Suzuki Swift ZXI Plus variant, with its automatic transmission, petrol engine, and compact size, offers a convenient and fuel-efficient option for those looking for an easy and comfortable driving experience. It\'s ideal for small families and couples seeking both practicality and efficiency in their car.', '2023-09-12 14:59:06'),
@@ -184,6 +186,15 @@ CREATE TABLE `car_sales` (
   `carid` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `car_sales`
+--
+
+INSERT INTO `car_sales` (`id`, `uid`, `carid`, `created_at`) VALUES
+(1, 1, 11, '2023-09-26 06:57:28'),
+(2, 1, 6, '2023-09-26 07:02:25'),
+(16, 10, 17, '2023-09-27 08:18:39');
 
 -- --------------------------------------------------------
 
@@ -270,6 +281,13 @@ CREATE TABLE `ev_sales` (
   `evid` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `ev_sales`
+--
+
+INSERT INTO `ev_sales` (`id`, `uid`, `evid`, `created_at`) VALUES
+(1, 1, 1, '2023-09-26 07:16:13');
 
 -- --------------------------------------------------------
 
@@ -359,7 +377,14 @@ CREATE TABLE `userdata` (
 --
 
 INSERT INTO `userdata` (`uid`, `fname`, `lname`, `email`, `password`, `address`, `city`, `zip`, `state`, `created_at`) VALUES
-(1, 'sahil', 'pathan', 'sahil@gmail.com', '$2y$10$nVCJUCtzAM4VqnGVIL1gyOkB42somxc8HvKhMwimLOAwUH3PgQAf.', 'dhoraji', 'dhoraji', '360410', 'Gujarat', '2023-09-24 08:29:47');
+(1, 'sahil', 'pathan', 'sahil@gmail.com', '$2y$10$nVCJUCtzAM4VqnGVIL1gyOkB42somxc8HvKhMwimLOAwUH3PgQAf.', 'dhoraji', 'dhoraji', '360410', 'Gujarat', '2023-09-24 08:29:47'),
+(4, 'tejas', 'pandya', 'tejas@gmail.com', '$2y$10$sw0lv1hXcyyoz9IFR261UePCxL6188HPs8gzBM5jaECWz/zBsRrc.', 'jetpur', 'jetpur', '360370', 'Gujarat', '2023-09-27 07:10:55'),
+(5, 'raj', 'pesavariya', 'raj@gmail.com', '$2y$10$2pcZmG9XiQVbzIycJw8IXu9hIkqxnT6yMjn1mkkIkymN04GjviQt.', 'jetpur', 'jetpur', '360370', 'Gujarat', '2023-09-27 07:11:34'),
+(6, 'aaftab', 'pathan', 'aaftab@gmail.com', '$2y$10$tgf1pdlymW9pecWALTWQHOO0DOSCiamIkrBNZwM4sucBokbutwyo.', 'dhoraji', 'DHORAJI', '360410', 'Gujarat', '2023-09-27 07:39:22'),
+(7, 'abc', 'xyz', 'abc@gmail.com', '$2y$10$u.X7UhXKGQY6yFvGBHkWse0JrVpjseEu8epGD.5d/5NnOrH4LLE0m', 'dhoraji', 'DHORAJI', '360410', 'Gujarat', '2023-09-27 07:44:19'),
+(8, 'xyz', 'abc', 'xyz@gmail.com', '$2y$10$p.z7aJZjtO1HUCsbVJ9zbeWrEQVxhPkCdIrRTS8VTG.oW65Te8H1O', 'jetpur', 'jetpur', '360470', 'Gujarat', '2023-09-27 07:50:03'),
+(9, 'xyz', 'abc', 'xyz1@gmail.com', '$2y$10$UBq5q20uETC0dSEFVrb9O.Og70raPOkDMm3InvdIG.43EcDDJt2IS', 'jetpur', 'jetpur', '360370', 'Gujarat', '2023-09-27 07:50:31'),
+(10, 'Farid', 'Nagani', 'farid@gmail.com', '$2y$10$wpq/SeUm23QPujTSc0r/5O747k60S3UPCi0yWcp7NAt0lmY/j2OSu', 'Dhoraji', 'DHORAJI', '360410', 'Gujarat', '2023-09-27 08:18:27');
 
 --
 -- Indexes for dumped tables
@@ -447,7 +472,7 @@ ALTER TABLE `userdata`
 -- AUTO_INCREMENT for table `admin_data`
 --
 ALTER TABLE `admin_data`
-  MODIFY `A_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `A_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `bike_sales`
@@ -459,7 +484,7 @@ ALTER TABLE `bike_sales`
 -- AUTO_INCREMENT for table `car_sales`
 --
 ALTER TABLE `car_sales`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `contactus`
@@ -471,7 +496,7 @@ ALTER TABLE `contactus`
 -- AUTO_INCREMENT for table `ev_sales`
 --
 ALTER TABLE `ev_sales`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `scooter_sales`
@@ -483,7 +508,7 @@ ALTER TABLE `scooter_sales`
 -- AUTO_INCREMENT for table `userdata`
 --
 ALTER TABLE `userdata`
-  MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Constraints for dumped tables
